@@ -53,7 +53,8 @@ ML_STREAMLIT_DASHBOARD/
 📊 Dataset yang Digunakan
 
 Dataset yang digunakan merupakan dataset citra alat musik yang disusun dalam struktur folder berdasarkan kelas (Image Classification format).
-dapat di unduh lewat link berikut : https://universe.roboflow.com/music-instrument-recognition/musical-instrument-recognition/dataset/4/download 
+dapat di unduh lewat link berikut : 
+https://universe.roboflow.com/music-instrument-recognition/musical-instrument-recognition/dataset/4/download 
 
 📍 Kelas Alat Musik
 
@@ -93,13 +94,13 @@ Dataset dibagi menjadi train, validation, dan test, serta dilakukan training dan
 
 Tahapan preprocessing citra yang dilakukan adalah sebagai berikut:
 
-1️⃣ Resize Gambar
+1️. Resize Gambar
 Semua gambar diubah ukurannya menjadi 224 × 224 piksel agar sesuai dengan input model.
 
-2️⃣ Normalisasi Pixel
+2️. Normalisasi Pixel
 Nilai pixel dinormalisasi ke rentang 0–1 dengan membagi nilai pixel dengan 255.
 
-3️⃣ Batching dan Ekspansi Dimensi
+3️. Batching dan Ekspansi Dimensi
 Citra diubah ke dalam bentuk batch agar dapat diproses oleh model TensorFlow/Keras.
 
 ⚙️ Preprocessing Data
@@ -107,14 +108,15 @@ Citra diubah ke dalam bentuk batch agar dapat diproses oleh model TensorFlow/Ker
 Preprocessing disesuaikan dengan karakteristik masing-masing model:
 
 Model	Preprocessing
-CNN Scratch	Normalisasi rescale=1./255
-EfficientNetB0	preprocess_input (ImageNet)
-MobileNetV2	preprocess_input + data augmentation
+- CNN Scratch	Normalisasi rescale=1./255
+- EfficientNetB0	preprocess_input (ImageNet)
+- MobileNetV2	preprocess_input + data augmentation
 
 Data augmentation hanya diterapkan pada training set untuk MobileNetV2.
 -----------------------------------------------------------------------------
 Model yang Digunakan
-1️⃣ CNN Scratch
+
+1️. CNN Scratch
 
 Dibangun dari nol menggunakan layer Conv2D dan MaxPooling
 
@@ -122,7 +124,7 @@ Cocok sebagai baseline model
 
 Output layer menyesuaikan jumlah kelas dataset
 
-2️⃣ EfficientNetB0
+2️. EfficientNetB0
 
 Menggunakan pretrained weight ImageNet
 
@@ -134,7 +136,7 @@ Fine-tuning layer terakhir
 
 Lebih efisien dengan parameter lebih sedikit
 
-3️⃣ MobileNetV2
+3️. MobileNetV2
 
 Lightweight model berbasis depthwise separable convolution
 
@@ -194,6 +196,7 @@ Model pretrained (EfficientNetB0 dan MobileNetV2) umumnya memberikan performa le
 
 CNN
 === Classification Report (CNN Scratch) ===
+
               precision    recall  f1-score   support
 
        cello       0.99      0.99      0.99       346
@@ -216,6 +219,7 @@ CNN
 ------------------------------------------------------------------------------
 EfficientNet
 === Classification Report (EfficientNetB0) ===
+
               precision    recall  f1-score   support
 
        cello     0.9425    0.9942    0.9677       346
@@ -308,26 +312,27 @@ Confidence score (%)
 Grafik probabilitas tiap kelas
 ----------------------------------------------------------------------------
 ⚙️ Instalasi dan Menjalankan Aplikasi
-1️⃣ Clone Repository
+1️. Clone Repository
 git clone https://github.com/tantri17/UAP_tantri-240
 dengan tambahan beberapa data harus di dowload melalui link yang tersedia (baca dengan teliti)
 
-2️⃣ Masuk ke Folder Project
+2️. Masuk ke Folder Project
 cd ML_STREAMLIT_DASHBOARD
 
-3️⃣ Instalasi Dependensi
+3️. Instalasi Dependensi
 pip install streamlit tensorflow numpy pandas pillow
 
-4️⃣ Jalankan Aplikasi
+4️. Jalankan Aplikasi
 python streamlit run app.py
 
-5️⃣ Akses Dashboard
+5️. Akses Dashboard
 
 Buka browser dan akses:
 
   Local URL: http://localhost:8501
   
   Network URL: http://192.168.0.30:8501
+
 
 
 
