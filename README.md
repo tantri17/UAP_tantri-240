@@ -340,7 +340,9 @@ Grafik probabilitas tiap kelas
 ## ⚙️ Instalasi dan Menjalankan Aplikasi
 1️. Clone Repository
 git clone https://github.com/tantri17/UAP_tantri-240
-dengan tambahan beberapa data harus di dowload melalui link yang tersedia (baca dengan teliti)
+
+
+dengan tambahan beberapa data harus di download melalui link yang tersedia (*baca dengan teliti*)
 
 2️. Masuk ke Folder Project
 ```
@@ -362,6 +364,7 @@ Buka browser dan akses:
   
   
   Network URL: http://192.168.0.30:8501
+
 
 
 
