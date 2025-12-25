@@ -5,7 +5,7 @@ Nama: Tantri Romadhoni Siswining Ndaru
 NIM: 202210370311240  
 
 
-🎵 Sistem Klasifikasi Citra Alat Musik Berbasis Deep Learning
+##🎵 Sistem Klasifikasi Citra Alat Musik Berbasis Deep Learning
 
 Proyek ini merupakan implementasi Sistem Klasifikasi Citra Alat Musik yang dibangun dalam bentuk dashboard interaktif menggunakan Streamlit.
 Sistem ini digunakan untuk mengklasifikasikan gambar alat musik ke dalam beberapa kelas, yaitu gitar, piano, drum, biola, cello dan saxophone, berdasarkan citra yang diunggah oleh pengguna.
@@ -19,6 +19,7 @@ MobileNetV2 (Pretrained Model)
 EfficientNetB0 (Pretrained Model)
 
 Ketiga model tersebut digunakan untuk melihat perbedaan karakteristik model, performa prediksi, serta confidence hasil klasifikasi citra.
+
 -----------------------------------------------------------------------------
 ## 📂 Struktur Repository
 
@@ -50,10 +51,12 @@ ML_STREAMLIT_DASHBOARD/
 
 ```
 -----------------------------------------------------------------------------
-📊 Dataset yang Digunakan
+## 📊 Dataset yang Digunakan
 
 Dataset yang digunakan merupakan dataset citra alat musik yang disusun dalam struktur folder berdasarkan kelas (Image Classification format).
 dapat di unduh lewat link berikut : 
+
+
 https://universe.roboflow.com/music-instrument-recognition/musical-instrument-recognition/dataset/4/download 
 
 📍 Kelas Alat Musik
@@ -77,8 +80,10 @@ Train → data latih
 Validation → data validasi
 
 Test → data pengujian
+
+
 ----------------------------------------------------------------------------
-Image Classification with CNN, EfficientNetB0, and MobileNetV2
+## Image Classification with CNN, EfficientNetB0, and MobileNetV2
 
 Project ini berisi implementasi klasifikasi citra menggunakan tiga pendekatan model deep learning, yaitu:
 
@@ -89,8 +94,10 @@ EfficientNetB0 (transfer learning)
 MobileNetV2 (transfer learning)
 
 Dataset dibagi menjadi train, validation, dan test, serta dilakukan training dan evaluasi terpisah untuk setiap model.
+
+
 -----------------------------------------------------------------------------
-🧹 Preprocessing Data
+## Preprocessing Data
 
 Tahapan preprocessing citra yang dilakukan adalah sebagai berikut:
 
@@ -103,7 +110,6 @@ Nilai pixel dinormalisasi ke rentang 0–1 dengan membagi nilai pixel dengan 255
 3️. Batching dan Ekspansi Dimensi
 Citra diubah ke dalam bentuk batch agar dapat diproses oleh model TensorFlow/Keras.
 
-⚙️ Preprocessing Data
 
 Preprocessing disesuaikan dengan karakteristik masing-masing model:
 
@@ -113,8 +119,10 @@ Model	Preprocessing
 - MobileNetV2	preprocess_input + data augmentation
 
 Data augmentation hanya diterapkan pada training set untuk MobileNetV2.
+
+
 -----------------------------------------------------------------------------
-Model yang Digunakan
+## Model yang Digunakan
 
 1️. CNN Scratch
 
@@ -144,20 +152,22 @@ Menggunakan data augmentation
 
 Fine-tuning sebagian layer akhir
 
-
-🚀 Training Model
+----------------------------------------------------------------
+## 🚀 Training Model
 
 Training dilakukan melalui folder training/.
-
+```
 Jalankan training:
 python training/train_cnn.py
 python training/train_efficientnet.py
 python training/train_mobilenet.py
-
+```
 
 Model hasil training akan otomatis tersimpan di folder models/.
+
+
 ----------------------------------------------------------------------------
-📈 Evaluasi Model
+##📈 Evaluasi Model
 
 Evaluasi dilakukan menggunakan data test yang tidak dilibatkan dalam training.
 
@@ -173,16 +183,18 @@ F1-Score
 
 Confusion Matrix
 
+```
 Jalankan evaluasi:
 python evaluation/eval_cnn.py
 python evaluation/eval_efficientnet.py
 python evaluation/eval_mobilenet.py
-
+```
 
 Evaluasi digunakan untuk membandingkan performa antar model secara objektif.
 
+
 ----------------------------------------------------------------------------
-📊 Perbandingan Model
+##📊 Perbandingan Model
 
 Hasil evaluasi dari ketiga model dapat dibandingkan untuk melihat:
 
@@ -194,7 +206,9 @@ Dampak transfer learning terhadap performa
 
 Model pretrained (EfficientNetB0 dan MobileNetV2) umumnya memberikan performa lebih baik dibanding CNN scratch.
 
-CNN
+
+
+###CNN
 === Classification Report (CNN Scratch) ===
 
               precision    recall  f1-score   support
@@ -216,8 +230,9 @@ CNN
 
 <img width="800" height="600" alt="CNN" src="https://github.com/user-attachments/assets/65b13b8e-27c1-4d2f-abec-c5d03f8e1e27" />
 
+
 ------------------------------------------------------------------------------
-EfficientNet
+###EfficientNet
 === Classification Report (EfficientNetB0) ===
 
               precision    recall  f1-score   support
@@ -238,8 +253,10 @@ EfficientNet
 
 <img width="1280" height="692" alt="EFFICIENTNET" src="https://github.com/user-attachments/assets/37c093c7-6ae9-43b0-84a2-7fe4b18d4f62" />
 
+
+
 -----------------------------------------------------------------------------------------------------------------------
-MobileNet
+###MobileNet
 === Classification Report (MobileNetV2) ===
 
               precision    recall  f1-score   support
@@ -261,9 +278,13 @@ MobileNet
 
 <img width="1280" height="692" alt="MOBILENET" src="https://github.com/user-attachments/assets/b960cdd9-5879-4ec3-993e-23fae600cb2d" />
 
+
+
 ----------------------------------------------------------------------------
-PERBANDINGAN
+##PERBANDINGAN
 📊 Tabel Perbandingan Kinerja Model
+
+
 🔹 Performa Keseluruhan
 | Model              | Accuracy | Macro Precision | Macro Recall | Macro F1-score | Weighted F1-score |
 | ------------------ | -------- | --------------- | ------------ | -------------- | ----------------- |
@@ -293,11 +314,14 @@ CNN Scratch cukup baik sebagai baseline, namun terbatas untuk dataset multi-kela
 
 EfficientNetB0 menunjukkan precision tinggi tetapi recall tidak stabil pada kelas tertentu, menandakan kemungkinan overfitting atau ketidakseimbangan fitur.
 
-📌 Model terbaik untuk deployment & aplikasi nyata: MobileNetV2
+📌 Dari proyek yang di lakukan model terbaik untuk deployment & aplikasi nyata: MobileNetV2
+
+
 ----------------------------------------------------------------------------------
-🌐 Aplikasi Streamlit
+## 🌐 Aplikasi Streamlit
 
 Aplikasi Streamlit menyediakan dua mode tampilan:
+
 
 Single Model → Prediksi menggunakan satu model pilihan
 
@@ -310,28 +334,35 @@ Kelas alat musik hasil prediksi
 Confidence score (%)
 
 Grafik probabilitas tiap kelas
+
+
 ----------------------------------------------------------------------------
-⚙️ Instalasi dan Menjalankan Aplikasi
+## ⚙️ Instalasi dan Menjalankan Aplikasi
 1️. Clone Repository
 git clone https://github.com/tantri17/UAP_tantri-240
 dengan tambahan beberapa data harus di dowload melalui link yang tersedia (baca dengan teliti)
 
 2️. Masuk ke Folder Project
+```
 cd ML_STREAMLIT_DASHBOARD
-
+```
 3️. Instalasi Dependensi
+```
 pip install streamlit tensorflow numpy pandas pillow
-
+```
 4️. Jalankan Aplikasi
+```
 python streamlit run app.py
-
+```
 5️. Akses Dashboard
 
 Buka browser dan akses:
 
   Local URL: http://localhost:8501
   
+  
   Network URL: http://192.168.0.30:8501
+
 
 
 
