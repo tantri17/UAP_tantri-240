@@ -108,11 +108,14 @@ Semua gambar diubah ukurannya menjadi 224 × 224 piksel agar sesuai dengan input
 2️. Normalisasi Pixel
 Nilai pixel dinormalisasi ke rentang 0–1 dengan membagi nilai pixel dengan 255.
 
+
 3. Augmentasi data (rotasi, zoom, flip horizontal)
+
+
+4. Split dataset: Training, Validation, Testing
+
    
-5. Split dataset: Training, Validation, Testing
-   
-7. Batching dan Ekspansi Dimensi
+5. Batching dan Ekspansi Dimensi
 Citra diubah ke dalam bentuk batch agar dapat diproses oleh model TensorFlow/Keras.
 
 
@@ -335,21 +338,93 @@ EfficientNetB0 menunjukkan precision tinggi tetapi recall tidak stabil pada kela
 ----------------------------------------------------------------------------------
 ## 🌐 Aplikasi Streamlit
 
-Aplikasi Streamlit menyediakan dua mode tampilan:
+### Tampilan Dashboard Sistem
+
+Aplikasi ini menyediakan dua mode tampilan utama, yaitu Single Model dan Bandingkan Semua Model, untuk memudahkan analisis dan perbandingan performa model klasifikasi citra alat musik.
+
+🔹 Mode Single Model
+
+Pada mode Single Model, pengguna dapat memilih satu model saja untuk melakukan prediksi terhadap gambar input.
+
+Fitur pada Mode Single Model:
+
+Upload satu gambar alat musik sebagai input
+
+Pemilihan model:
+
+CNN Base (Non-Pretrained)
+
+MobileNetV2 (Transfer Learning)
+
+EfficientNetB0 (Transfer Learning)
+
+Hasil prediksi ditampilkan secara fokus, meliputi:
+
+Nama kelas hasil klasifikasi
+
+Nilai confidence (tingkat keyakinan model)
+
+Grafik batang distribusi probabilitas seluruh kelas
+
+Tujuan Mode Single Model:
+
+Mengamati perilaku dan karakteristik masing-masing model secara individual
+
+Mengevaluasi kestabilan prediksi tanpa gangguan model lain
+
+Cocok digunakan untuk analisis mendalam (model inspection)
+<img width="956" height="507" alt="Screenshot 2025-12-26 003429" src="https://github.com/user-attachments/assets/be24b49e-8ded-445a-9d32-774fc16fb899" />
 
 
-Single Model → Prediksi menggunakan satu model pilihan
 
-Bandingkan Semua Model → Perbandingan hasil prediksi dari seluruh model
+🔹 Mode Bandingkan Semua Model
 
-Output yang ditampilkan:
+Mode Bandingkan Semua Model memungkinkan pengguna melihat hasil prediksi dari seluruh model secara bersamaan menggunakan satu gambar input yang sama.
 
-Kelas alat musik hasil prediksi
+Informasi yang Ditampilkan:
 
-Confidence score (%)
+Gambar input yang sama untuk semua model
 
-Grafik probabilitas tiap kelas
+Hasil prediksi tiap model, yaitu:
 
+CNN Base
+
+MobileNetV2
+
+EfficientNetB0
+
+Confidence score masing-masing model
+
+Visualisasi probabilitas kelas dalam bentuk grafik batang untuk setiap model
+
+Analisis Contoh Hasil:
+
+CNN Base dan MobileNetV2 menghasilkan prediksi kelas guitar dengan confidence yang sangat tinggi
+
+EfficientNetB0 menghasilkan prediksi berbeda dengan confidence rendah, yang menunjukkan kemungkinan kesalahan klasifikasi atau model belum optimal pada sampel tertentu
+
+Tujuan Mode Bandingkan Semua Model:
+
+Membandingkan performa antar model secara langsung (side-by-side comparison)
+
+Mengidentifikasi model dengan akurasi dan kepercayaan prediksi terbaik
+
+Mendukung pengambilan keputusan dalam pemilihan model terbaik
+<img width="959" height="506" alt="Screenshot 2025-12-26 003458" src="https://github.com/user-attachments/assets/571b78ba-8b85-4941-ada3-e6792ad4ebce" />
+
+
+
+🔹 Manfaat Dashboard Secara Keseluruhan
+
+Dashboard ini dirancang untuk:
+
+Menyediakan visualisasi hasil prediksi yang interaktif
+
+Memudahkan evaluasi dan interpretasi hasil klasifikasi citra alat musik
+
+Mendukung eksperimen perbandingan model CNN dan Transfer Learning
+
+Menjadi alat bantu analisis dalam penelitian atau tugas akademik berbasis Deep Learning
 
 ----------------------------------------------------------------------------
 ## ⚙️ Instalasi dan Menjalankan Aplikasi
@@ -363,10 +438,12 @@ dengan tambahan beberapa data harus di download melalui link yang tersedia (*bac
 ```
 cd ML_STREAMLIT_DASHBOARD
 ```
+
 3. Buat Virtual Environment
 ```
 python -m venv .venv
 ```
+
 4.  Aktivasi Environment
 ```
 # Windows
@@ -375,14 +452,17 @@ python -m venv .venv
 # macOS/Linux
 source .venv/bin/activate
 ```
+
 5. Instalasi Dependensi
 ```
 pip install streamlit tensorflow numpy pandas pillow
 ```
+
 6. Jalankan Aplikasi
 ```
 python streamlit run app.py
 ```
+
 7. Akses Dashboard
 
 Buka browser dan akses:
@@ -391,6 +471,7 @@ Buka browser dan akses:
   
   
   Network URL: http://192.168.0.30:8501
+
 
 
 
