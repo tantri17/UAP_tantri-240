@@ -32,22 +32,23 @@ ML_STREAMLIT_DASHBOARD/
 │   └── valid/                      # Data validasi citra alat musik
 │
 ├── training/
-│   ├── train_cnn.py                # Script training CNN Base
-│   ├── train_mobilenet.py          # Script training MobileNetV2
-│   └── train_efficientnet.py       # Script training EfficientNetB0
+│   ├── train_cnn.py                # Script training CNN dari awal (Scratch)
+│   ├── train_mobilenet.py          # Script training MobileNetV2 (Transfer Learning)
+│   └── train_efficientnet.py       # Script training EfficientNetB0 (Transfer Learning)
 │
 ├── evaluation/
-│   ├── eval_cnn.py                 # Evaluasi model CNN
+│   ├── eval_cnn.py                 # Evaluasi model CNN (Classification Report & Confusion Matrix)
 │   ├── eval_mobilenet.py           # Evaluasi model MobileNetV2
 │   └── eval_efficientnet.py        # Evaluasi model EfficientNetB0
 │
 ├── models/
 │   ├── cnn_scratch.h5              # Model CNN hasil training
-│   ├── mobilenetv2.h5              # Model MobileNetV2 hasil training
-│   └── efficientnetb0.h5           # Model EfficientNetB0 hasil training
+│   ├── mobilenetv2.h5              # Model MobileNetV2 hasil fine-tuning
+│   └── efficientnetb0.h5           # Model EfficientNetB0 hasil fine-tuning
 │
-├── app.py                          # Aplikasi utama Streamlit
+├── app.py                          # Aplikasi utama Streamlit untuk klasifikasi citra
 └── README.md                       # Dokumentasi proyek
+
 
 -----------------------------------------------------------------------------
 📊 Dataset yang Digunakan
@@ -203,15 +204,13 @@ CNN
        flute       0.66      0.97      0.78       209
       guitar       0.92      0.99      0.96       285
        piano       0.58      0.21      0.31       387
-   saxophone       0.88      1.00      0.93       574
-     trumpet       0.56      1.00      0.72       446
-        tuba       0.98      0.94      0.96       159
-      violin       0.98      0.94      0.96       621
-   xylophone       0.51      0.91      0.66       209
 
-    accuracy                           0.80      4413
-   macro avg       0.82      0.86      0.81      4413
-weighted avg       0.83      0.80      0.78      4413
+ | Metric | Precision | Recall | F1-score | Support |
+|-------|-----------|--------|----------|---------|
+| Accuracy | - | - | **0.80** | 4413 |
+| Macro Avg | **0.82** | **0.86** | **0.81** | 4413 |
+| Weighted Avg | **0.83** | **0.80** | **0.78** | 4413 |
+
 
 <img width="800" height="600" alt="CNN" src="https://github.com/user-attachments/assets/65b13b8e-27c1-4d2f-abec-c5d03f8e1e27" />
 
@@ -227,15 +226,13 @@ EfficientNet
        flute     0.8957    0.9856    0.9385       209
       guitar     0.9895    0.9965    0.9930       285
        piano     0.9897    0.4987    0.6632       387
-   saxophone     0.8879    0.9930    0.9375       574
-     trumpet     0.9010    0.9798    0.9388       446
-        tuba     0.9750    0.9811    0.9781       159
-      violin     0.8585    0.9871    0.9184       621
-   xylophone     0.4082    1.0000    0.5798       209
 
-    accuracy                         0.7843      4413
-   macro avg     0.8502    0.8709    0.7986      4413
-weighted avg     0.8797    0.7843    0.7395      4413
+  | Metric | Precision | Recall | F1-score | Support |
+|-------|-----------|--------|----------|---------|
+| Accuracy | - | - | **0.7843** | 4413 |
+| Macro Avg | **0.8502** | **0.8709** | **0.7986** | 4413 |
+| Weighted Avg | **0.8797** | **0.7843** | **0.7395** | 4413 |
+
 <img width="1280" height="692" alt="EFFICIENTNET" src="https://github.com/user-attachments/assets/37c093c7-6ae9-43b0-84a2-7fe4b18d4f62" />
 
 -----------------------------------------------------------------------------------------------------------------------
@@ -251,15 +248,13 @@ MobileNet
        flute     1.0000    0.9761    0.9879       209
       guitar     1.0000    1.0000    1.0000       285
        piano     0.8280    0.9948    0.9038       387
-   saxophone     1.0000    1.0000    1.0000       574
-     trumpet     1.0000    1.0000    1.0000       446
-        tuba     0.9938    1.0000    0.9969       159
-      violin     1.0000    1.0000    1.0000       621
-   xylophone     1.0000    1.0000    1.0000       209
 
-    accuracy                         0.9803      4413
-   macro avg     0.9840    0.9890    0.9856      4413
-weighted avg     0.9833    0.9803    0.9806      4413
+| Metric | Precision | Recall | F1-score | Support |
+|-------|-----------|--------|----------|---------|
+| Accuracy | - | - | **0.9803** | 4413 |
+| Macro Avg | **0.9840** | **0.9890** | **0.9856** | 4413 |
+| Weighted Avg | **0.9833** | **0.9803** | **0.9806** | 4413 |
+
 
 <img width="1280" height="692" alt="MOBILENET" src="https://github.com/user-attachments/assets/b960cdd9-5879-4ec3-993e-23fae600cb2d" />
 
@@ -332,6 +327,8 @@ python streamlit run app.py
 Buka browser dan akses:
 
   Local URL: http://localhost:8501
+  
   Network URL: http://192.168.0.30:8501
+
 
 
