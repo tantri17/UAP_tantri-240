@@ -20,10 +20,9 @@ EfficientNetB0 (Pretrained Model)
 
 Ketiga model tersebut digunakan untuk melihat perbedaan karakteristik model, performa prediksi, serta confidence hasil klasifikasi citra.
 -----------------------------------------------------------------------------
-📂 Struktur Repository
+## 📂 Struktur Repository
 
-Struktur folder repository disusun untuk memisahkan dataset, proses training, evaluasi model, dan aplikasi utama agar mudah dipahami dan dikelola.
-
+```bash
 ML_STREAMLIT_DASHBOARD/
 │
 ├── dataset/
@@ -37,7 +36,7 @@ ML_STREAMLIT_DASHBOARD/
 │   └── train_efficientnet.py       # Script training EfficientNetB0 (Transfer Learning)
 │
 ├── evaluation/
-│   ├── eval_cnn.py                 # Evaluasi model CNN (Classification Report & Confusion Matrix)
+│   ├── eval_cnn.py                 # Evaluasi model CNN
 │   ├── eval_mobilenet.py           # Evaluasi model MobileNetV2
 │   └── eval_efficientnet.py        # Evaluasi model EfficientNetB0
 │
@@ -46,7 +45,7 @@ ML_STREAMLIT_DASHBOARD/
 │   ├── mobilenetv2.h5              # Model MobileNetV2 hasil fine-tuning
 │   └── efficientnetb0.h5           # Model EfficientNetB0 hasil fine-tuning
 │
-├── app.py                          # Aplikasi utama Streamlit untuk klasifikasi citra
+├── app.py                          # Aplikasi utama Streamlit
 └── README.md                       # Dokumentasi proyek
 
 
@@ -329,6 +328,7 @@ Buka browser dan akses:
   Local URL: http://localhost:8501
   
   Network URL: http://192.168.0.30:8501
+
 
 
 
