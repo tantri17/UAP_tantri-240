@@ -111,8 +111,8 @@ Nilai pixel dinormalisasi ke rentang 0–1 dengan membagi nilai pixel dengan 255
 3. Augmentasi data (rotasi, zoom, flip horizontal)
    
 5. Split dataset: Training, Validation, Testing
-
-6. Batching dan Ekspansi Dimensi
+   
+7. Batching dan Ekspansi Dimensi
 Citra diubah ke dalam bentuk batch agar dapat diproses oleh model TensorFlow/Keras.
 
 
@@ -311,7 +311,8 @@ Model pretrained (EfficientNetB0 dan MobileNetV2) umumnya memberikan performa le
 | Piano     | 0.31         | 0.66                    | **0.90**             |
 | Xylophone | 0.66         | 0.58                    | **1.00**             |
 
-
+----------------------------------------------------------------------------------------------------
+### Kesimpulan Akhir
 
 | Nama Model          | Akurasi | Hasil Analisis |
 |---------------------|---------|----------------|
@@ -390,6 +391,7 @@ Buka browser dan akses:
   
   
   Network URL: http://192.168.0.30:8501
+
 
 
 
