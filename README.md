@@ -102,21 +102,27 @@ Dataset dibagi menjadi train, validation, dan test, serta dilakukan training dan
 
 Tahapan preprocessing citra yang dilakukan adalah sebagai berikut:
 
-1️. Resize Gambar
-Semua gambar diubah ukurannya menjadi 224 × 224 piksel agar sesuai dengan input model.
+1. **Resize Gambar**  
+   Semua gambar diubah ukurannya menjadi **224 × 224 piksel** agar sesuai dengan input model.
 
-2️. Normalisasi Pixel
-Nilai pixel dinormalisasi ke rentang 0–1 dengan membagi nilai pixel dengan 255.
+2. **Normalisasi Pixel**  
+   Nilai pixel dinormalisasi ke rentang **0–1** dengan membagi nilai pixel dengan **255**.
 
+3. **Augmentasi Data**  
+   Dilakukan augmentasi data untuk meningkatkan variasi data latih, meliputi:
+   - Rotasi
+   - Zoom
+   - Flip horizontal
 
-3. Augmentasi data (rotasi, zoom, flip horizontal)
+4. **Split Dataset**  
+   Dataset dibagi menjadi:
+   - Training
+   - Validation
+   - Testing
 
+5. **Batching dan Ekspansi Dimensi**  
+   Citra diubah ke dalam bentuk **batch** dan diekspansi dimensinya agar dapat diproses oleh model **TensorFlow/Keras**.
 
-4. Split dataset: Training, Validation, Testing
-
-   
-5. Batching dan Ekspansi Dimensi
-Citra diubah ke dalam bentuk batch agar dapat diproses oleh model TensorFlow/Keras.
 
 
 Preprocessing disesuaikan dengan karakteristik masing-masing model:
@@ -428,51 +434,45 @@ Menjadi alat bantu analisis dalam penelitian atau tugas akademik berbasis Deep L
 
 ----------------------------------------------------------------------------
 ## ⚙️ Instalasi dan Menjalankan Aplikasi
-1️. Clone Repository
+1. Clone Repository
 ```
 git clone https://github.com/tantri17/UAP_tantri-240
 ```
-dengan tambahan beberapa data harus di download melalui link yang tersedia (*baca dengan teliti*)
+Beberapa data tambahan harus diunduh melalui link yang tersedia, silakan baca instruksi dengan teliti.
 
-2️. Masuk ke Folder Project
+2. Masuk ke Folder Project
 ```
 cd ML_STREAMLIT_DASHBOARD
 ```
-
 3. Buat Virtual Environment
 ```
 python -m venv .venv
 ```
+4. Aktivasi Environment
 
-4.  Aktivasi Environment
 ```
-# Windows
+Windows
 .venv\Scripts\activate
 
-# macOS/Linux
+macOS / Linux
 source .venv/bin/activate
 ```
-
 5. Instalasi Dependensi
 ```
 pip install streamlit tensorflow numpy pandas pillow
 ```
-
 6. Jalankan Aplikasi
 ```
-python streamlit run app.py
+streamlit run app.py
 ```
-
 7. Akses Dashboard
 
+```
 Buka browser dan akses:
+Local URL: http://localhost:8501
 
-  Local URL: http://localhost:8501
-  
-  
-  Network URL: http://192.168.0.30:8501
-
-
+Network URL: http://192.168.0.30:8501
+```
 
 
 
