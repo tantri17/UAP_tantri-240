@@ -51,7 +51,8 @@ ML_STREAMLIT_DASHBOARD/
 
 ```
 -----------------------------------------------------------------------------
-## 📊 Dataset yang Digunakan
+## 📊 Dataset yang Digunakan (Sumber dataset universe.roboflow.com)
+
 
 Dataset yang digunakan merupakan dataset citra alat musik yang disusun dalam struktur folder berdasarkan kelas (Image Classification format).
 dapat di unduh lewat link berikut : 
@@ -107,7 +108,11 @@ Semua gambar diubah ukurannya menjadi 224 × 224 piksel agar sesuai dengan input
 2️. Normalisasi Pixel
 Nilai pixel dinormalisasi ke rentang 0–1 dengan membagi nilai pixel dengan 255.
 
-3️. Batching dan Ekspansi Dimensi
+3. Augmentasi data (rotasi, zoom, flip horizontal)
+   
+5. Split dataset: Training, Validation, Testing
+
+6. Batching dan Ekspansi Dimensi
 Citra diubah ke dalam bentuk batch agar dapat diproses oleh model TensorFlow/Keras.
 
 
@@ -306,6 +311,15 @@ Model pretrained (EfficientNetB0 dan MobileNetV2) umumnya memberikan performa le
 | Piano     | 0.31         | 0.66                    | **0.90**             |
 | Xylophone | 0.66         | 0.58                    | **1.00**             |
 
+
+
+| Nama Model          | Akurasi | Hasil Analisis |
+|---------------------|---------|----------------|
+| CNN Scratch         | 0.80    | Model baseline tanpa pretrained. Mampu mengenali beberapa kelas dengan baik, namun performa menurun pada kelas dengan kemiripan visual tinggi seperti drum dan piano. Cocok sebagai pembanding awal. |
+| EfficientNetB0      | 0.78    | Model transfer learning dengan fitur kuat, namun menunjukkan ketidakseimbangan recall pada beberapa kelas (misalnya drum dan xylophone). Performa cukup baik tetapi belum optimal pada dataset ini. |
+| MobileNetV2         | 0.98    | Model terbaik dengan akurasi tertinggi dan performa stabil di hampir semua kelas. Sangat efektif, efisien, dan cocok untuk deployment aplikasi berbasis web seperti Streamlit. |
+
+----------------------------------------------------------------------------
 Kesimpulan Akhir
 
 MobileNetV2 adalah model terbaik dengan akurasi 98% dan performa sangat konsisten di seluruh kelas.
@@ -339,24 +353,36 @@ Grafik probabilitas tiap kelas
 ----------------------------------------------------------------------------
 ## ⚙️ Instalasi dan Menjalankan Aplikasi
 1️. Clone Repository
+```
 git clone https://github.com/tantri17/UAP_tantri-240
-
-
+```
 dengan tambahan beberapa data harus di download melalui link yang tersedia (*baca dengan teliti*)
 
 2️. Masuk ke Folder Project
 ```
 cd ML_STREAMLIT_DASHBOARD
 ```
-3️. Instalasi Dependensi
+3. Buat Virtual Environment
+```
+python -m venv .venv
+```
+4.  Aktivasi Environment
+```
+# Windows
+.venv\Scripts\activate
+
+# macOS/Linux
+source .venv/bin/activate
+```
+5. Instalasi Dependensi
 ```
 pip install streamlit tensorflow numpy pandas pillow
 ```
-4️. Jalankan Aplikasi
+6. Jalankan Aplikasi
 ```
 python streamlit run app.py
 ```
-5️. Akses Dashboard
+7. Akses Dashboard
 
 Buka browser dan akses:
 
@@ -364,6 +390,7 @@ Buka browser dan akses:
   
   
   Network URL: http://192.168.0.30:8501
+
 
 
 
