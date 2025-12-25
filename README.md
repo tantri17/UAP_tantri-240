@@ -5,7 +5,7 @@ Nama: Tantri Romadhoni Siswining Ndaru
 NIM: 202210370311240  
 
 
-##🎵 Sistem Klasifikasi Citra Alat Musik Berbasis Deep Learning
+## 🎵 Sistem Klasifikasi Citra Alat Musik Berbasis Deep Learning
 
 Proyek ini merupakan implementasi Sistem Klasifikasi Citra Alat Musik yang dibangun dalam bentuk dashboard interaktif menggunakan Streamlit.
 Sistem ini digunakan untuk mengklasifikasikan gambar alat musik ke dalam beberapa kelas, yaitu gitar, piano, drum, biola, cello dan saxophone, berdasarkan citra yang diunggah oleh pengguna.
@@ -153,7 +153,7 @@ Menggunakan data augmentation
 Fine-tuning sebagian layer akhir
 
 ----------------------------------------------------------------
-## 🚀 Training Model
+##  Training Model
 
 Training dilakukan melalui folder training/.
 ```
@@ -167,7 +167,7 @@ Model hasil training akan otomatis tersimpan di folder models/.
 
 
 ----------------------------------------------------------------------------
-##📈 Evaluasi Model
+##  Evaluasi Model
 
 Evaluasi dilakukan menggunakan data test yang tidak dilibatkan dalam training.
 
@@ -194,7 +194,7 @@ Evaluasi digunakan untuk membandingkan performa antar model secara objektif.
 
 
 ----------------------------------------------------------------------------
-##📊 Perbandingan Model
+# 📊 Perbandingan Model
 
 Hasil evaluasi dari ketiga model dapat dibandingkan untuk melihat:
 
@@ -208,7 +208,7 @@ Model pretrained (EfficientNetB0 dan MobileNetV2) umumnya memberikan performa le
 
 
 
-###CNN
+### CNN
 === Classification Report (CNN Scratch) ===
 
               precision    recall  f1-score   support
@@ -232,7 +232,7 @@ Model pretrained (EfficientNetB0 dan MobileNetV2) umumnya memberikan performa le
 
 
 ------------------------------------------------------------------------------
-###EfficientNet
+### EfficientNet
 === Classification Report (EfficientNetB0) ===
 
               precision    recall  f1-score   support
@@ -256,7 +256,7 @@ Model pretrained (EfficientNetB0 dan MobileNetV2) umumnya memberikan performa le
 
 
 -----------------------------------------------------------------------------------------------------------------------
-###MobileNet
+### MobileNet
 === Classification Report (MobileNetV2) ===
 
               precision    recall  f1-score   support
@@ -281,7 +281,7 @@ Model pretrained (EfficientNetB0 dan MobileNetV2) umumnya memberikan performa le
 
 
 ----------------------------------------------------------------------------
-##PERBANDINGAN
+## Kesimpulan Perbandingan Model
 📊 Tabel Perbandingan Kinerja Model
 
 
@@ -362,6 +362,7 @@ Buka browser dan akses:
   
   
   Network URL: http://192.168.0.30:8501
+
 
 
 
